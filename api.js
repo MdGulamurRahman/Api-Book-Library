@@ -18,6 +18,7 @@ const bookDataLoad = () =>{
       bookNameInput.value = '';
   }
 }
+
 const collectData = (bookData) =>{
   const url = `http://openlibrary.org/search.json?q=${bookData}`;
     fetch(url)
@@ -26,14 +27,12 @@ const collectData = (bookData) =>{
 }
 const displyShowBook = (book)=> {
     var conditionArr = book.filter(find => find.cover_i !== undefined && find.author_name !== undefined && find.publisher !== undefined && find.title !== undefined && find.first_publish_year !== undefined)
-    console.log(conditionArr)
-    
    if(conditionArr.length === 0){
           cardContainer.textContent = ''
           result.innerText = 'No Result Found!'
    } else{
          errorMsg.textContent = ''
-         result.innerText = `You got ${book.length} books`
+         result.innerText = `You got ${conditionArr.length} books`
           cardContainer.innerHTML = ''
           conditionArr.forEach(books => {
             const div = document.createElement('div');
