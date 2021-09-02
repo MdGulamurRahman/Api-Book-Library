@@ -20,7 +20,7 @@ const bookDataLoad = () =>{
 }
 
 const collectData = (bookData) =>{
-  const url = `http://openlibrary.org/search.json?q=${bookData}`;
+  const url = `https://openlibrary.org/search.json?q=${bookData}`;
     fetch(url)
     .then(res => res.json())
     .then(data => displyShowBook(data.docs))
